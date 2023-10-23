@@ -1,0 +1,24 @@
+#include <WiFi.h>
+
+void setup()
+{
+Serial.begin(9600);
+
+  delay(5000);
+  Serial.println("Project");
+  WiFi.softAP("Intelligent Door System");
+  delay(2000);
+  Serial.println("Access Point IP address: ");
+  Serial.println((WiFi.softAPIP()));
+
+}
+
+
+void loop()
+{
+
+    Serial.println("# of devices connected to this network");
+    Serial.println((WiFi.softAPgetStationNum()));
+    delay(7000);
+
+}

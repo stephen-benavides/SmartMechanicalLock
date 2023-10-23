@@ -1,0 +1,75 @@
+#include <WiFi.h>
+//#include <WiFiManager.h>
+
+String  ClientRequest;
+WiFiServer server(80);
+
+WiFiClient client;
+
+String myresultat;
+
+String ReadIncomingRequest(){
+while(client.available()) {
+ClientRequest = (client.readStringUntil('\r'));
+ if ((ClientRequest.indexOf("HTTP/1.1")>0)&&(ClientRequest.indexOf("/favicon.ico")<0)){
+myresultat = ClientRequest;
+}
+}
+return myresultat;
+}
+
+void setup()
+{
+ClientRequest = "";
+
+Serial.begin(9600);
+
+pinMode(5, OUTPUT);
+  WiFi.disconnect();
+  delay(3000);
+// WiFiManager wifiManager;
+ //wifiManager.autoConnect("AutoConnectAP");                    
+  Serial.println("Attempting Connection to the Internet");     
+  WiFi.begin("NoMaste","01234567");                            
+  while ((!(WiFi.status() == WL_CONNECTED))){
+    delay(300);
+    Serial.print(".");                                         
+
+  }
+  Serial.println("Connection Successful! ");                    
+  Serial.println("Place this IP into the search bar");              
+  Serial.println((WiFi.localIP()));                             
+  server.begin();                                               
+
+}                                                              
+
+
+void loop()
+{
+
+    client = server.available();
+    if (!client) { return; }
+    while(!client.available()){  delay(1); }
+    ClientRequest = (ReadIncomingRequest());
+    ClientRequest.remove(0, 5);   //*
+    ClientRequest.remove(ClientRequest.length()-9,9);
+    if (ClientRequest == "OPEN") {
+      digitalWrite(5,HIGH);
+
+    }
+    if (ClientRequest == "CLOSE") {
+      digitalWrite(5,LOW);
+
+    }
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<!DOCTYPE HTML>");
+    client.println("<html>");
+    client.println("OK");
+    client.println("</html>");
+    client.stop();    //stop accepting more calls from the client
+    delay(1);
+    client.flush();   //makes sure all outgoing characters in buffer have been sent
+
+}

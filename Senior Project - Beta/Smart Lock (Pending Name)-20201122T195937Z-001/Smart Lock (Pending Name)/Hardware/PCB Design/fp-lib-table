@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name ESP32_Mount)(type KiCad)(uri ${KIPRJMOD}/ESP32_Mount.pretty)(options "")(descr ""))
+  (lib (name ESP32-WROOM-32D)(type Legacy)(uri ${KIPRJMOD}/ESP32-WROOM-32D.mod)(options "")(descr ""))
+  (lib (name Boost)(type KiCad)(uri ${KIPRJMOD}/Boost.pretty)(options "")(descr ""))
+)
