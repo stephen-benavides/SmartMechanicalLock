@@ -1,0 +1,35 @@
+SPECS/BOARD		ESP32			ESP8266			ARDUINO UNO
+
+Number of Cores		2			1			1
+Architecture		32Bit			32Bit			8Bit
+CPU Frequency 		160MHz			80MHz			16MHz
+Wifi			Yes			Yes			No
+Bluetooth		Yes			No			No
+RAM 			512 KB			160KB			2KB
+FLASH			16MB			16MB			32KB
+GPIO PINS		36			17			14
+BUSSES			SPI,I2C,UART,I2S,CAN	SPI,I2C,UART,I2S	SPI,I2C,UART
+ADC PINS		18			1			6
+DAC PINS		2			0			0
+
+
+Where to buy:
+- https://www.banggood.com/ESP32-Development-Board-WiFiBluetooth-Ultra-Low-Power-Consumption-Dual-Cores-ESP-32-ESP-32S-Board-p-1109512.html?p=DQ30066511122014069J&utm_campaign=educ8stv&utm_content=3216&cur_warehouse=CN
+**The cost as of today is of $8
+ 
+*This board has a 3.3v regulator 
+*We can use the arduino IDE with the ESP32 and the python environment 
+*The power consumption is the same as the ESP8266
+*The software is still in development for the ESP32, we might have a bit of troubles getting support from the community because is in the early stages
+*Overall the ESP32 can replace both the ESP8266 and the ARDUINO UNO depending on the task 
+*Python 2.7
+*For test purposes we can use a power bank and can be used as a representation for the batteries in the project 
+
+NOTES:
+*Flash memory retains data in the absence of a power supply, is slower than RAM but faster than HDD; Thus we can store instant information into the chip
+up to 16MB of data.
+
+
+GITHUB
+https://github.com/espressif/arduino-esp32
+
