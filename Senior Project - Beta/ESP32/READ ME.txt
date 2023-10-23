@@ -1,0 +1,16 @@
+https://discordbots.org/servers/514901094950895651
+wickr me 
+null byte (Youtube)
+
+
+
+arduino extension on visual studio code 
+caprtea vacia, la abres con arduino uno . 
+
+F1>Arduino initialize 
+
+F1> carpeta en blanco (F1 hace todos los comandos)
+
+F1> arduino examples
+  > arduino config  
+  > arduino serial monitor 
